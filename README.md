@@ -30,7 +30,7 @@ To begin, as a developer, think about how the user will interact with the genera
 <img src="assets\images\pwdlengthalert3.PNG" alt="image of password length alert for invalid entry">
 4. The user is presented with multiple prompts to select what characters (such as lowercase, uppercase, numeric, and/or special characters) to include in the password. The user will select "OK" to include or "Cancel" to not include certain character.
 <img src="assets\images\lowercaseprompt.PNG" alt="image of one of the character prompts">
-4. The password is displayed and generated according to criteria user selected. 
+5. The password is displayed and generated according to criteria user selected. 
 <img src="assets\images\pwdexample.PNG" alt="example of generated password">
 
 [Click here to see password generator](https://amandardz.github.io/Password-Generator/)
