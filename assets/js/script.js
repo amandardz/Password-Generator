@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
+// Write password to the #password input *The function will display generated password*
 function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
@@ -12,13 +12,16 @@ function writePassword() {
     
 }
 
+//Function will create a random password
 function generatePassword() {
+    // variables for possible characters
     const pwdLength = prompt('How many characters do you want your password to contain? (Password must be a minimum of 8 characters and no more than 128 characters)');
     const containsLowercase = "abcdefghijklmnopqrstuvwxyz".split("");
     const containsUppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     const containsNumbers = "0123456789".split("");
     const containsSpChar = "!#$%&'()*+,-./:;<=>?@[^_`{|}~".split("");
-
+    
+    // if statement that specifies condition to execute depending on user input for password length 
     if(pwdLength >= 8 && pwdLength <= 128) {
         alert('You have selected your password to be ' + pwdLength + ' characters long.');
     } else if(pwdLength < 8 || pwdLength > 128) {
@@ -29,6 +32,7 @@ function generatePassword() {
         return generatePassword();
     }
 
+    // multiple confirm boxes that will display for user to determine or select what characters to include in random passwords
     lowercasePrompt = confirm('Would you like to include lowercase letters?');
     uppercasePrompt = confirm('Would you like to include uppercase letters?');
     numPrompt = confirm('Would you like to include numbers?');
@@ -38,6 +42,8 @@ function generatePassword() {
     var uppercasePrompt
     var numPrompt
     var spCharPrompt
+
+    // variables for possible user criteria
     var options0 = [containsLowercase, containsUppercase, containsNumbers, containsSpChar].flat();
     var options1 = [containsLowercase, containsUppercase, containsNumbers].flat();
     var options2 = [containsLowercase, containsUppercase, containsSpChar].flat();
@@ -54,6 +60,7 @@ function generatePassword() {
     var options13 = [containsSpChar].flat();
     var userPwd = '';
 
+    // if statement that specifies condition to execute depending on user criteria for generated password
     if(lowercasePrompt && uppercasePrompt && numPrompt && spCharPrompt) {
         for(var i = 0; i < pwdLength; i++) {
             userPwd += options0[Math.floor(Math.random() * options0.length)];
@@ -117,5 +124,5 @@ function generatePassword() {
     return userPwd;
 };
 
-// Add event listener to generate button
+// Add event listener to generate button *The button the user will click to initiate the password generator*
 generateBtn.addEventListener("click", writePassword);
